@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Alex</string>
+    <string name="text1">star loan management system was started with the aim of offering long term loans to it\'s members country wide.It offers loan at attracting interest rate of 9% per annum. it\'s headquaters are in Nairobi and has various branches in Kisumu,Mombasa,Murang\'a and Kiambu.One is only offered a loan if he she is a member.</string>
+    <string name="title_activity_create">CreateActivity</string>
+</resources>
