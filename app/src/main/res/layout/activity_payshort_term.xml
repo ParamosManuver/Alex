@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_payloan"
+    android:id="@+id/activity_payshort_term"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -9,24 +9,20 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.mike.alex.PayloanActivity">
-
+    tools:context="com.mike.alex.PayshortTermActivity">
     <TextView
-        android:text="Select type to pay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView4"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
-
-
+        android:text="Enter amount to pay"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="amount in kshs"
+        android:id="@+id/pay_short_amount"/>
     <Button
-        android:text="Pay short term loan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/pay_short_term_loan" />
-    <Button
-        android:text="pay long term loan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/pay_long_term_loan"/>
+        android:text="pay "/>
+
 </LinearLayout>

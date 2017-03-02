@@ -27,7 +27,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query;
-        query = "CREATE TABLE customers(ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,CONTACTS TEXT,FULLNAME TEXT,PASSWORD TEXT,FAMOUNT TEXT,LAMOUNT TEXT)";
+        query = "CREATE TABLE customers(ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,CONTACTS TEXT,FULLNAME TEXT,PASSWORD TEXT)";
         db.execSQL(query);
     }
 
@@ -38,15 +38,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public boolean insertData(String name, String contacts,
                               String fullname,
-                              String password, String famount, String lamount) {
+                              String password) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2, name);
         contentValues.put(COL_3, contacts);
         contentValues.put(COL_4, fullname);
         contentValues.put(COL_5, password);
-        contentValues.put(COL_6, famount);
-        contentValues.put(COL_7, lamount);
         long result = db.insert("customers", null, contentValues);
         if (result == -1) {
             return false;
@@ -76,26 +74,5 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return password;
     }
 
-    public String getfamount(String name) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query("customers", null, "FAMOUNT=?", new String[]{FAMOUNT}, null, null, null);
-        if (cursor.getCount() < 1) {
-            cursor.close();
-            return "NOT EXIST";
-        }
-        return FAMOUNT;
-
-
-    }
-
-    public String getlamount(String name) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query("customers", null, "LAMOUNT=?", new String[]{LAMOUNT}, null, null, null);
-        if (cursor.getCount() < 1) {
-            cursor.close();
-            return "NOT EXIST";
-        }
-        return LAMOUNT;
-    }
 
 }

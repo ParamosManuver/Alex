@@ -21,6 +21,8 @@ public class CreateActivity extends AppCompatActivity {
         contacts=(EditText)findViewById(R.id.phoneNo);
         password=(EditText)findViewById(R.id.create_password);
         full_name=(EditText)findViewById(R.id.fullName);
+        /*fAmount=(EditText)findViewById(R.id.fAmount);
+        lAmount=(EditText)findViewById(R.id.lAmount);*/
 
         final Button create =(Button)findViewById(R.id.create);
         create.setOnClickListener(new View.OnClickListener() {
@@ -39,7 +41,7 @@ public class CreateActivity extends AppCompatActivity {
         final String _fullname=full_name.getText().toString();
 
 
-        if (helper.insertData(_username,_contacts,_password,_fullname)==true){
+        if (helper.insertData(_username,_contacts,_fullname,_password)){
             Toast.makeText(getBaseContext(), "Data Saved", Toast.LENGTH_LONG).show();
         }
 

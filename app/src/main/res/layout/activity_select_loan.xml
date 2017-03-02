@@ -22,13 +22,13 @@
         android:text="Short Term"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button4"
+        android:id="@+id/Select_short"
         />
 
     <Button
         android:text="Long Term"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button"
+        android:id="@+id/Select_long"
         />
 </LinearLayout>

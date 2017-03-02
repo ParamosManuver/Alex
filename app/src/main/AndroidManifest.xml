@@ -24,10 +24,31 @@
         <activity
             android:name=".CreateActivity"
             android:label="create account" />
-        <activity android:name=".AccountActivity" />
-        <activity android:name=".SelectLoanActivity" />
-        <activity android:name=".ApplyloanActivity" />
-        <activity android:name=".PayloanActivity"></activity>
+        <activity android:name=".AccountActivity"
+            android:label="Account details"
+            />
+        <activity android:name=".SelectLoanActivity"
+            android:label="Loan Selection"
+            />
+        <activity android:name=".PayloanActivity"
+            android:label="Loan payment"
+
+            />
+        <activity android:name=".ApplyShortActivity"
+            android:label="Apply Short term loan"
+
+            />
+        <activity android:name=".ApplyLongActivity"
+            android:label="Apply Long term loan"
+
+            />
+        <activity android:name=".PaylongTermActivity"
+            android:label="Pay Long  term loan"
+            />
+        <activity android:name=".PayshortTermActivity"
+            android:label="Pay Short Term Loan">
+
+        </activity>
     </application>
 
 </manifest>
