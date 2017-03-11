@@ -16,8 +16,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_3 = "CONTACTS";
     public static final String COL_4 = "FULLNAME";
     public static final String COL_5 = "PASSWORD";
-    public static final String COL_6 = "FAMOUNT";
+    public static final String COL_6 = "SAMOUNT";
     public static final String COL_7 = "LAMOUNT";
+    public static final String COL_8 = "TAMOUNT";
 
 
     public DatabaseHelper(Context context) {
@@ -27,7 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query;
-        query = "CREATE TABLE customers(ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,CONTACTS TEXT,FULLNAME TEXT,PASSWORD TEXT)";
+        query = "CREATE TABLE customers(ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,CONTACTS TEXT,FULLNAME TEXT,PASSWORD TEXT,SAMOUNT INT,LAMOUNT INT ,TAMOUNT INT)";
         db.execSQL(query);
     }
 
@@ -45,12 +46,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_3, contacts);
         contentValues.put(COL_4, fullname);
         contentValues.put(COL_5, password);
+
         long result = db.insert("customers", null, contentValues);
+
         if (result == -1) {
             return false;
         } else {
             return true;
         }
+    }
+
+    public boolean insertShortLoan(String name,int lAmount) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_6, lAmount);
+        long result= db.update("customers",contentValues,"NAME=?",new String[]{name});
+
+        if (result == -1) {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+
+    public boolean insertLongLoan(String name,int lAmount) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_7, lAmount);
+        long result= db.update("customers",contentValues,"NAME=?",new String[]{name});
+
+        if (result == -1) {
+            return false;
+        } else {
+            return true;
+        }
+
     }
 
 
@@ -72,6 +103,66 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return "NOT EXIST";
         }
         return password;
+    }
+    public String getAccountName() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query("customers", null, "ID=?", new String[]{Integer.toString(1)}, null, null, null);
+        if (cursor.getCount() < 1) {
+            cursor.close();
+            return "NOT EXIST";
+        }
+        cursor.moveToFirst();
+        String name=cursor.getString(cursor.getColumnIndex(COL_2));
+        return name;
+    }
+
+    public String getShortLoan() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query("customers", null, "ID=?", new String[]{Integer.toString(1)}, null, null, null);
+        if (cursor.getCount() < 1) {
+            cursor.close();
+            return "NOT EXIST";
+        }
+        cursor.moveToFirst();
+        String loan=cursor.getString(cursor.getColumnIndex(COL_6));
+        return loan;
+    }
+    public String getLongLoan() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query("customers", null, "ID=?", new String[]{Integer.toString(1)}, null, null, null);
+        if (cursor.getCount() < 1) {
+            cursor.close();
+            return "NOT EXIST";
+        }
+        cursor.moveToFirst();
+        String loan=cursor.getString(cursor.getColumnIndex(COL_7));
+        return loan;
+    }
+    public boolean payShortLoan(String name,int lAmount) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_6, lAmount);
+        long result= db.update("customers",contentValues,"NAME=?",new String[]{name});
+
+        if (result == -1) {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+    public boolean payLongLoan(String name,int lAmount) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_7, lAmount);
+        long result= db.update("customers",contentValues,"NAME=?",new String[]{name});
+
+        if (result == -1) {
+            return false;
+        } else {
+            return true;
+        }
+
     }
 
 

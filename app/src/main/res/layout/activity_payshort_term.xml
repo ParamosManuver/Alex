@@ -21,6 +21,7 @@
         android:hint="amount in kshs"
         android:id="@+id/pay_short_amount"/>
     <Button
+        android:id="@+id/pay_short_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="pay "/>

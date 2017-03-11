@@ -21,6 +21,8 @@
         android:hint="amount in kshs"
         android:id="@+id/apply_long_amount"/>
     <Button
+
+        android:id="@+id/btn_apply_long"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="apply "/>

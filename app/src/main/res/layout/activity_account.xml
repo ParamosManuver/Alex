@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:id="@+id/activity_account"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -13,59 +13,107 @@
 
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="username"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:text="username" />
 
         <TextView
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:text="ALEX"
             android:id="@+id/account_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/activity_vertical_margin"
-            />
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:text="ALEX" />
 
     </LinearLayout>
 
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/account_loanAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:text="Short Term Loan amount: " />
+
+        <TextView
+            android:id="@+id/account_lAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="0" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Loan amount: "
-            android:id="@+id/account_loanAmount"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"/>
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:text="Long Term Loan amount: " />
+
         <TextView
+            android:id="@+id/account_s_lAmount"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="amount1"
-            android:id="@+id/account_lAmount"/>
+            android:text="0" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:text="Total Loan amount: " />
+
+        <TextView
+            android:id="@+id/account_t_lAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="0" />
 
 
     </LinearLayout>
 
 
     <Button
+        android:id="@+id/account_reg_loan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Reguest loan"
-        android:id="@+id/account_reg_loan"/>
+        android:text="Reguest loan" />
+
     <Button
+        android:id="@+id/account_pay_loan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="pay loan"
-        android:id="@+id/account_pay_loan"/>
+        android:text="pay loan" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="logout" />
 
 
 </LinearLayout>
